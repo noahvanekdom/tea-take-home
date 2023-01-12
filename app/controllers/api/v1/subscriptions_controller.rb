@@ -16,7 +16,14 @@ class Api::V1::SubscriptionsController < ApplicationController
   end
 
   def update
-
+    subscription = Subscription.find(params[:id])
+    subscription.update(params.permit(:status))
+    if subscription.save
+      render json: "Hooray", status: 204
+      require 'pry'; binding.pry
+    else
+      render json: "Idiot", status: 400
+    end
   end
 
 private
