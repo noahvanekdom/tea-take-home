@@ -10,7 +10,7 @@ RSpec.describe "Viewing a customer's subscriptions" do
         tea = create :tea
         subscriptions = create_list(:subscription, 5)
         
-        patch api_v1_customer_subscriptions_path(customer.id)
+        get api_v1_customer_subscriptions_path(customer.id)
         expect(response).to be_successful
 
         body = JSON.parse(response.body)
