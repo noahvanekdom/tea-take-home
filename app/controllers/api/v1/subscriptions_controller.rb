@@ -4,5 +4,6 @@ class Api::V1::SubscriptionsController < ApplicationController
   end
 
   def index
+
   end
 end

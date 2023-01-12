@@ -7,7 +7,12 @@ RSpec.describe "Creating a Subscription" do
         post api_v1_customer_subscriptions_path(1), params: { tea_id: 1 }
 
 
+        expect(Subscription.all.count).to eq 0
         expect(response).to be_successful
+        expect(Subscription.all.count).to eq 1
+
+        body = JSON.parse(response.body)
+        expect(body).to be_a Hash
       end
     end
   end
