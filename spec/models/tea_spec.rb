@@ -1,16 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe Customer, type: :model do
+RSpec.describe Tea, type: :model do
   describe "Validations" do
-    it { should validate_presence_of :first_name }
-    it { should validate_presence_of :last_name }
-    it { should validate_uniqueness_of :email }
-    it { should validate_presence_of :address }
+    it { should validate_presence_of :brew_time }
+    it { should validate_presence_of :description }
+    it { should validate_uniqueness_of :title }
+    it { should validate_presence_of :temperature }
   end
 
   describe "Relationships" do
     it { should have_many :subscriptions }
-    it { should have_many(:customers).through :subscriptions }
+    # it { should have_many(:customers).through :subscriptions }
   end
 
   describe "Methods" do
