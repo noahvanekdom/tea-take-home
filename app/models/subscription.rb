@@ -3,4 +3,6 @@ class Subscription < ApplicationRecord
   enum status: [ :active, :canceled ]
   enum frequency: [ :weekly, :monthly ]
 
+  belongs_to :customer
+  belongs_to :tea
 end
