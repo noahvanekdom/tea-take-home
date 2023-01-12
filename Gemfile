@@ -43,6 +43,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'factory_bot_rails'
   gem 'rspec-rails'
+  gem 'simplecov'
 end
 
 group :development do
