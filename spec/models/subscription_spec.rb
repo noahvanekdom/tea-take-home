@@ -14,6 +14,12 @@ RSpec.describe Subscription, type: :model do
   end
 
   describe "Methods" do
+    it "can be created" do
+      teas = create_list(:tea, 5)
+      customers = create_list(:customer, 5)
 
+      subscription = create :subscription
+      expect(subscription).to be_a Subscription
+    end
   end
 end

@@ -14,6 +14,9 @@ RSpec.describe Customer, type: :model do
   end
 
   describe "Methods" do
-
+    it "can be created" do
+      tea = create :tea
+      expect(tea).to be_a Tea
+    end
   end
 end
