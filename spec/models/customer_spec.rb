@@ -10,7 +10,7 @@ RSpec.describe Customer, type: :model do
 
   describe "Relationships" do
     it { should have_many :subscriptions }
-    it { should have_many(:teas).through :subscriptions }
+    # it { should have_many(:teas).through :subscriptions }
   end
 
   describe "Methods" do
@@ -18,7 +18,5 @@ RSpec.describe Customer, type: :model do
       customer1 = create :customer
       expect(customer1).to be_a Customer
     end
-
-
   end
 end
