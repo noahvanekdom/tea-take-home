@@ -21,4 +21,18 @@ RSpec.describe "Cancelling a Subscription" do
       end
     end
   end
+
+  context "sad path" do
+    describe "when a request is sent with invalid params" do
+      it "returns an appropriate error message" do
+        customer = create :customer
+        tea = create :tea
+        subscription = create :subscription
+        expect(subscription.status).to eq "active"
+
+        patch api_v1_customer_subscription_path(customer.id, subscription.id), params: { status: "YOLO" }
+        expect(response.status).to eq 400
+      end
+    end
+  end
 end
