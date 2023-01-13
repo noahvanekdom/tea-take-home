@@ -21,4 +21,17 @@ RSpec.describe "Creating a Subscription" do
       end
     end
   end
+
+  context "sad path" do
+    describe "when invalid params are sent in" do
+      it "returns an appropriate error message" do
+        customer = create :customer
+        tea = create :tea
+        expect(Subscription.all.count).to eq 0
+        post api_v1_customer_subscriptions_path(customer.id), params: { price: 10, frequency: "weekly", title: ""}
+
+        expect(response.status).to eq 400
+      end
+    end
+  end
 end
